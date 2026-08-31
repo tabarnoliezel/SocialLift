@@ -1,1 +1,903 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>SocialLift | Affordable Social Media Marketing</title>
+
+  <meta name="description" content="SocialLift provides affordable social media marketing services for Facebook, Instagram, TikTok and more.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e8ebf0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: #2563eb;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    .nav-button {
+      background: #2563eb;
+      color: white !important;
+      padding: 10px 17px;
+      border-radius: 8px;
+    }
+
+    /* HERO */
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 20px 80px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #eaf1ff;
+      color: #2563eb;
+      padding: 7px 13px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: #2563eb;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #667085;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .primary-button,
+    .secondary-button {
+      padding: 14px 22px;
+      border-radius: 9px;
+      font-weight: 700;
+      display: inline-block;
+    }
+
+    .primary-button {
+      background: #2563eb;
+      color: white;
+    }
+
+    .secondary-button {
+      border: 1px solid #d6dbe5;
+      background: white;
+      color: #344054;
+    }
+
+    .primary-button:hover {
+      background: #1d4ed8;
+    }
+
+    .secondary-button:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+
+    /* HERO CARD */
+
+    .dashboard-card {
+      background: white;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 20px 50px rgba(16, 24, 40, 0.10);
+      border: 1px solid #e9edf3;
+    }
+
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+    }
+
+    .dashboard-header h3 {
+      font-size: 17px;
+    }
+
+    .online {
+      color: #16a34a;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .stat {
+      background: #f8fafc;
+      padding: 17px;
+      border-radius: 10px;
+    }
+
+    .stat small {
+      display: block;
+      color: #667085;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .stat strong {
+      font-size: 22px;
+    }
+
+    .growth {
+      color: #16a34a;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .activity {
+      border-top: 1px solid #edf0f4;
+      padding-top: 18px;
+    }
+
+    .activity-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 9px 0;
+      font-size: 13px;
+    }
+
+    .status {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 80px 20px;
+    }
+
+    .section-container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #667085;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    /* SERVICES */
+
+    .services {
+      background: white;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      border: 1px solid #e7eaf0;
+      border-radius: 14px;
+      padding: 25px;
+      background: white;
+      transition: 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+    }
+
+    .service-icon {
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .service-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    /* PACKAGES */
+
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .package {
+      background: white;
+      border: 1px solid #e4e7ec;
+      border-radius: 16px;
+      padding: 30px;
+      position: relative;
+    }
+
+    .package.popular {
+      border: 2px solid #2563eb;
+    }
+
+    .popular-label {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+      background: #2563eb;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .package h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 35px;
+      font-weight: 800;
+      color: #2563eb;
+      margin: 12px 0 20px;
+    }
+
+    .price small {
+      font-size: 13px;
+      color: #667085;
+      font-weight: normal;
+    }
+
+    .package ul {
+      list-style: none;
+      margin-bottom: 25px;
+    }
+
+    .package li {
+      margin: 10px 0;
+      font-size: 14px;
+      color: #475467;
+    }
+
+    .package li::before {
+      content: "✓";
+      color: #16a34a;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .package-button {
+      display: block;
+      text-align: center;
+      background: #2563eb;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    /* WHY */
+
+    .why {
+      background: #111827;
+      color: white;
+    }
+
+    .why .section-title p {
+      color: #cbd5e1;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      background: #1f2937;
+      border-radius: 14px;
+      padding: 25px;
+    }
+
+    .why-card h3 {
+      margin: 10px 0;
+    }
+
+    .why-card p {
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    /* CTA */
+
+    .cta {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 55px 30px;
+      background: #2563eb;
+      color: white;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: auto auto 25px;
+      color: #e0e7ff;
+    }
+
+    .cta-button {
+      background: white;
+      color: #2563eb;
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 800;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0b1120;
+      color: #cbd5e1;
+      padding: 45px 20px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .footer-brand h3 {
+      color: white;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      max-width: 400px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 13px;
+    }
+
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #1f2937;
+      margin-top: 30px;
+      padding-top: 25px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 60px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .package-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links a:not(.nav-button) {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 30px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-container">
+      <a href="#" class="logo">Social<span>Lift</span></a>
+
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#why">Why SocialLift</a>
+        <a href="#contact" class="nav-button">Get Started</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div>
+      <div class="badge">🚀 Affordable Social Media Marketing</div>
+
+      <h1>
+        Grow your social media.
+        <span>Without breaking the bank.</span>
+      </h1>
+
+      <p>
+        SocialLift helps businesses, creators and personal brands
+        improve their social media presence with simple,
+        affordable and accessible marketing services.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#packages" class="primary-button">View Packages</a>
+        <a href="#services" class="secondary-button">Explore Services</a>
+      </div>
+    </div>
+
+
+    <!-- SAMPLE DASHBOARD -->
+
+    <div class="dashboard-card">
+
+      <div class="dashboard-header">
+        <h3>SocialLift Dashboard</h3>
+        <span class="online">● ONLINE</span>
+      </div>
+
+      <div class="stats">
+
+        <div class="stat">
+          <small>Followers</small>
+          <strong>12,480</strong>
+          <div class="growth">+12.4%</div>
+        </div>
+
+        <div class="stat">
+          <small>Engagement</small>
+          <strong>8.7%</strong>
+          <div class="growth">+4.2%</div>
+        </div>
+
+        <div class="stat">
+          <small>Reach</small>
+          <strong>48.2K</strong>
+          <div class="growth">+18.6%</div>
+        </div>
+
+        <div class="stat">
+          <small>Campaigns</small>
+          <strong>6</strong>
+          <div class="growth">Active</div>
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-item">
+          <span>Facebook Campaign</span>
+          <span class="status">Active</span>
+        </div>
+
+        <div class="activity-item">
+          <span>Instagram Growth</span>
+          <span class="status">Active</span>
+        </div>
+
+        <div class="activity-item">
+          <span>TikTok Campaign</span>
+          <span class="status">Active</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- SERVICES -->
+
+  <section class="services" id="services">
+
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>What can SocialLift do?</h2>
+        <p>
+          Affordable social media services designed for businesses,
+          creators and individuals who want to improve their online presence.
+        </p>
+      </div>
+
+
+      <div class="service-grid">
+
+        <div class="service-card">
+          <div class="service-icon">📘</div>
+          <h3>Facebook</h3>
+          <p>
+            Page growth, engagement campaigns and social media support.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📸</div>
+          <h3>Instagram</h3>
+          <p>
+            Improve your Instagram presence and reach more potential followers.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🎵</div>
+          <h3>TikTok</h3>
+          <p>
+            Increase visibility and build your TikTok presence.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📣</div>
+          <h3>Promotion</h3>
+          <p>
+            Affordable promotional campaigns for posts, pages and brands.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PACKAGES -->
+
+  <section id="packages">
+
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>Simple. Affordable. Flexible.</h2>
+        <p>
+          Start small and upgrade whenever your social media needs grow.
+        </p>
+      </div>
+
+
+      <div class="package-grid">
+
+        <div class="package">
+
+          <h3>Starter</h3>
+
+          <p>For individuals starting their social media journey.</p>
+
+          <div class="price">
+            ₱0
+            <small>/ demo</small>
+          </div>
+
+          <ul>
+            <li>Sample account setup</li>
+            <li>Basic social strategy</li>
+            <li>Content suggestions</li>
+            <li>Basic account review</li>
+          </ul>
+
+          <a href="#contact" class="package-button">
+            Get Started
+          </a>
+
+        </div>
+
+
+        <div class="package popular">
+
+          <div class="popular-label">MOST POPULAR</div>
+
+          <h3>Growth</h3>
+
+          <p>For small businesses and creators ready to grow.</p>
+
+          <div class="price">
+            ₱299
+            <small>/ starting</small>
+          </div>
+
+          <ul>
+            <li>Social media campaign</li>
+            <li>Engagement support</li>
+            <li>Content planning</li>
+            <li>Performance monitoring</li>
+          </ul>
+
+          <a href="#contact" class="package-button">
+            Choose Growth
+          </a>
+
+        </div>
+
+
+        <div class="package">
+
+          <h3>Business</h3>
+
+          <p>For businesses that need more consistent support.</p>
+
+          <div class="price">
+            ₱599
+            <small>/ starting</small>
+          </div>
+
+          <ul>
+            <li>Multi-platform support</li>
+            <li>Campaign management</li>
+            <li>Content assistance</li>
+            <li>Monthly reporting</li>
+          </ul>
+
+          <a href="#contact" class="package-button">
+            Contact Us
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY SOCIAL LIFT -->
+
+  <section class="why" id="why">
+
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>Why SocialLift?</h2>
+        <p>
+          We believe social media marketing should be accessible
+          even to people with a small budget.
+        </p>
+      </div>
+
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="service-icon">💰</div>
+          <h3>Low Cost</h3>
+          <p>
+            Start with affordable options instead of expensive agency packages.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="service-icon">⚡</div>
+          <h3>Simple</h3>
+          <p>
+            No complicated marketing jargon. Choose what you need and get started.
+          </p>
+        </div>
+
+        <div class="why-card">
+          <div class="service-icon">📊</div>
+          <h3>Trackable</h3>
+          <p>
+            Monitor your campaigns and social media performance.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section id="contact">
+
+    <div class="cta">
+
+      <h2>Ready to lift your social media?</h2>
+
+      <p>
+        Tell us what you need and we'll help you find
+        an affordable SocialLift service.
+      </p>
+
+      <a href="mailto:sociallift@example.com" class="cta-button">
+        Contact SocialLift
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-brand">
+
+        <h3>SocialLift</h3>
+
+        <p>
+          Affordable social media marketing for businesses,
+          creators and individuals.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="#services">Services</a>
+        <a href="#packages">Packages</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+      © 2026 SocialLift. All rights reserved.
+    </div>
+
+  </footer>
+
+</body>
+</html>
+```
