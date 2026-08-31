@@ -843,6 +843,226 @@
 
   <!-- CTA -->
 
+ ```html
+  <!-- ORDER FORM -->
+
+  <section id="order">
+
+    <div class="section-container">
+
+      <div class="section-title">
+        <h2>Place Your Order</h2>
+        <p>
+          Choose your platform and service. Start with our affordable
+          SocialLift packages.
+        </p>
+      </div>
+
+      <div style="
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        border: 1px solid #e4e7ec;
+        box-shadow: 0 10px 30px rgba(16,24,40,0.06);
+      ">
+
+        <form id="orderForm">
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="customerName"
+              required
+              placeholder="Enter your full name"
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;"
+            >
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="customerEmail"
+              required
+              placeholder="you@example.com"
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;"
+            >
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Contact Number
+            </label>
+
+            <input
+              type="tel"
+              id="customerPhone"
+              required
+              placeholder="09XXXXXXXXX"
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;"
+            >
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Platform
+            </label>
+
+            <select
+              id="platform"
+              required
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;background:white;"
+            >
+              <option value="">Select platform</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+            </select>
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Service
+            </label>
+
+            <select
+              id="service"
+              required
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;background:white;"
+            >
+              <option value="">Select service</option>
+              <option value="Followers">Followers</option>
+              <option value="Likes">Likes</option>
+              <option value="Comments">Comments</option>
+              <option value="Views">Views</option>
+              <option value="Page Promotion">Page Promotion</option>
+              <option value="Post Promotion">Post Promotion</option>
+            </select>
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Quantity
+            </label>
+
+            <input
+              type="number"
+              id="quantity"
+              required
+              min="1"
+              value="100"
+              placeholder="Example: 100"
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;"
+            >
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Social Media Link
+            </label>
+
+            <input
+              type="url"
+              id="socialLink"
+              required
+              placeholder="Paste your Facebook, Instagram or TikTok link"
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;"
+            >
+          </div>
+
+
+          <div style="margin-bottom:18px;">
+            <label style="display:block;font-weight:700;margin-bottom:7px;">
+              Additional Notes
+            </label>
+
+            <textarea
+              id="notes"
+              rows="4"
+              placeholder="Anything we should know?"
+              style="width:100%;padding:13px;border:1px solid #d0d5dd;border-radius:8px;font-size:14px;resize:vertical;"
+            ></textarea>
+          </div>
+
+
+          <div style="
+            background:#f8fafc;
+            padding:18px;
+            border-radius:10px;
+            margin-bottom:20px;
+            text-align:center;
+          ">
+
+            <div style="font-size:13px;color:#667085;">
+              Estimated Total
+            </div>
+
+            <div
+              id="estimatedPrice"
+              style="font-size:30px;font-weight:800;color:#2563eb;margin-top:4px;"
+            >
+              ₱0.00
+            </div>
+
+          </div>
+
+
+          <button
+            type="submit"
+            style="
+              width:100%;
+              border:none;
+              background:#2563eb;
+              color:white;
+              padding:15px;
+              border-radius:9px;
+              font-size:16px;
+              font-weight:800;
+              cursor:pointer;
+            "
+          >
+            Place Order
+          </button>
+
+
+          <div
+            id="orderMessage"
+            style="
+              display:none;
+              margin-top:18px;
+              padding:14px;
+              border-radius:8px;
+              text-align:center;
+              font-size:14px;
+            "
+          ></div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
   <section id="contact">
 
     <div class="cta">
@@ -854,8 +1074,8 @@
         an affordable SocialLift service.
       </p>
 
-      <a href="mailto:sociallift@example.com" class="cta-button">
-        Contact SocialLift
+      <a href="#order" class="cta-button">
+        Start Your Order
       </a>
 
     </div>
@@ -885,7 +1105,7 @@
 
         <a href="#services">Services</a>
         <a href="#packages">Packages</a>
-        <a href="#contact">Contact</a>
+        <a href="#order">Order</a>
 
       </div>
 
@@ -897,6 +1117,75 @@
     </div>
 
   </footer>
+
+
+  <!-- ORDER CALCULATOR -->
+
+  <script>
+
+    const servicePrices = {
+
+      "Followers": 0.50,
+      "Likes": 0.30,
+      "Comments": 0.50,
+      "Views": 0.10,
+      "Page Promotion": 50,
+      "Post Promotion": 30
+
+    };
+
+
+    const service = document.getElementById("service");
+    const quantity = document.getElementById("quantity");
+    const estimatedPrice = document.getElementById("estimatedPrice");
+
+
+    function calculatePrice() {
+
+      const selectedService = service.value;
+      const qty = Number(quantity.value) || 0;
+
+      if (!selectedService || qty <= 0) {
+
+        estimatedPrice.textContent = "₱0.00";
+        return;
+
+      }
+
+      const pricePerUnit = servicePrices[selectedService];
+
+      const total = pricePerUnit * qty;
+
+      estimatedPrice.textContent =
+        "₱" + total.toLocaleString("en-PH", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+
+    }
+
+
+    service.addEventListener("change", calculatePrice);
+    quantity.addEventListener("input", calculatePrice);
+
+
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const message = document.getElementById("orderMessage");
+
+      message.style.display = "block";
+      message.style.background = "#ecfdf3";
+      message.style.color = "#027a48";
+
+      message.innerHTML =
+        "✅ Your order has been received! " +
+        "We will review your request and contact you shortly.";
+
+    });
+
+  </script>
 
 </body>
 </html>
