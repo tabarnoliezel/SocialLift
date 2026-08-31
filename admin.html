@@ -971,13 +971,30 @@ document
         );
 
 
-      } catch (error) {
+     } catch (err) {
 
-        console.error(error);
+  console.error(err);
 
-        error =
-          error.message ||
-          "Unable to sign in.";
+  const loginError =
+    document.getElementById(
+      "loginError"
+    );
+
+  loginError.textContent =
+    err.message ||
+    "Unable to sign in.";
+
+  loginError.style.display =
+    "block";
+
+} finally {
+
+  button.disabled = false;
+
+  button.textContent =
+    "Sign In";
+
+}
 
 
         const loginError =
