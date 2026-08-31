@@ -672,102 +672,67 @@
 
 
 
-    <!-- CUSTOMER ORDERS -->
+<!-- CUSTOMER ORDERS -->
 
-    <div class="orders-card">
+<div class="orders-card">
 
+  <div class="orders-header">
 
-      <div class="orders-header">
+    <h2>Customer Orders</h2>
 
-        <h2>
-          Customer Orders
-        </h2>
+    <button
+      class="refresh-button"
+      onclick="loadOrders()"
+    >
+      Refresh
+    </button>
 
+  </div>
 
-        <button
-          class="refresh-button"
-          onclick="loadOrders()"
-        >
-          Refresh
-        </button>
+  <div class="table-container">
 
-      </div>
+    <table>
 
+      <thead>
 
+        <tr>
 
-      <div class="table-container">
+          <th>Customer</th>
+          <th>Platform</th>
+          <th>Service</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Payment Method</th>
+          <th>Payment Reference</th>
+          <th>Payment Status</th>
+          <th>Status</th>
+          <th>Date</th>
 
-        <table>
+        </tr>
 
-          <thead>
+      </thead>
 
-            <tr>
+      <tbody id="ordersTable">
 
-              <th>
-                Customer
-              </th>
+        <tr>
 
-              <th>
-                Platform
-              </th>
+          <td
+            colspan="10"
+            class="empty"
+          >
+            Loading orders...
 
-              <th>
-                Service
-              </th>
+          </td>
 
-              <th>
-                Quantity
-           <th>
-  Price
-</th>
+        </tr>
 
-<th>
-  Payment Method
-</th>
+      </tbody>
 
-<th>
-  Payment Reference
-</th>
+    </table>
 
-<th>
-  Payment Status
-</th>
+  </div>
 
-<th>
-  Status
-</th>
-
-<th>
-  Date
-</th>
-            </tr>
-
-          </thead>
-
-
-          <tbody id="ordersTable">
-
-            <tr>
-
-              <td
-                colspan="7"
-                class="empty"
-              >
-                Loading orders...
-              </td>
-
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </div>
-
-  </main>
-
+</div>
 
 
   <!-- FOOTER -->
