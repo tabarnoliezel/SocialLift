@@ -1292,13 +1292,11 @@ async function loadOrders() {
 
 function updateStats(orders) {
 
-
   const pending =
     orders.filter(
       order =>
         order.order_status === "Pending"
     );
-
 
   const processing =
     orders.filter(
@@ -1306,16 +1304,21 @@ function updateStats(orders) {
         order.order_status === "Processing"
     );
 
-
   const completed =
     orders.filter(
       order =>
         order.order_status === "Completed"
     );
 
+  const activeOrders =
+    orders.filter(
+      order =>
+        order.order_status !== "Cancelled"
+    );
+
 
   const totalRevenue =
-    orders.reduce(
+    activeOrders.reduce(
       (sum, order) =>
         sum +
         Number(
@@ -1326,7 +1329,7 @@ function updateStats(orders) {
 
 
   const pendingRevenue =
-    pending.reduce(
+    [...pending, ...processing].reduce(
       (sum, order) =>
         sum +
         Number(
@@ -1389,7 +1392,6 @@ function updateStats(orders) {
     formatMoney(pendingRevenue);
 
 }
-
 
 /* =========================
    MONEY FORMAT
