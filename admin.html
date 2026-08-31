@@ -407,13 +407,20 @@
     ></div>
 
 
-    <div class="stats">
+  <div class="stat-card">
+  <small>Total Revenue</small>
+  <strong id="totalRevenue">₱0.00</strong>
+</div>
 
-      <div class="stat-card">
-        <small>Total Orders</small>
-        <strong id="totalOrders">0</strong>
-      </div>
+<div class="stat-card">
+  <small>Completed Revenue</small>
+  <strong id="completedRevenue">₱0.00</strong>
+</div>
 
+<div class="stat-card">
+  <small>Pending Revenue</small>
+  <strong id="pendingRevenue">₱0.00</strong>
+</div>
       <div class="stat-card">
         <small>Pending</small>
         <strong id="pendingOrders">0</strong>
@@ -848,7 +855,46 @@ function updateStats(orders) {
 
 }
 
+  const totalRevenue = orders.reduce(
+    (sum, order) =>
+      sum + Number(order.estimated_price || 0),
+    0
+  );
 
+  const completedRevenue = orders
+    .filter(order => order.order_status === "Completed")
+    .reduce(
+      (sum, order) =>
+        sum + Number(order.estimated_price || 0),
+      0
+    );
+
+  const pendingRevenue = orders
+    .filter(order => order.order_status === "Pending")
+    .reduce(
+      (sum, order) =>
+        sum + Number(order.estimated_price || 0),
+      0
+    );
+
+  document.getElementById("totalRevenue").textContent =
+    "₱" + totalRevenue.toLocaleString("en-PH", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  document.getElementById("completedRevenue").textContent =
+    "₱" + completedRevenue.toLocaleString("en-PH", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+  document.getElementById("pendingRevenue").textContent =
+    "₱" + pendingRevenue.toLocaleString("en-PH", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  
 async function updateStatus(id, status) {
 
   const token =
