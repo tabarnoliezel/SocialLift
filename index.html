@@ -1168,21 +1168,96 @@
     service.addEventListener("change", calculatePrice);
     quantity.addEventListener("input", calculatePrice);
 
+document.getElementById("orderForm").addEventListener("submit", async function(event) {
 
-    document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-      event.preventDefault();
+  const message = document.getElementById("orderMessage");
+  const submitButton = this.querySelector("button[type='submit']");
 
-      const message = document.getElementById("orderMessage");
+  const selectedService = service.value;
+  const qty = Number(quantity.value) || 0;
 
-      message.style.display = "block";
-      message.style.background = "#ecfdf3";
-      message.style.color = "#027a48";
+  if (!selectedService || qty <= 0) {
+    message.style.display = "block";
+    message.style.background = "#fef3f2";
+    message.style.color = "#b42318";
+    message.textContent = "Please select a service and enter a valid quantity.";
+    return;
+  }
 
-      message.innerHTML =
-        "✅ Your order has been received! " +
-        "We will review your request and contact you shortly.";
+  const pricePerUnit = servicePrices[selectedService];
+  const total = pricePerUnit * qty;
 
+  const orderData = {
+    customer_name: document.getElementById("customerName").value.trim(),
+    customer_email: document.getElementById("customerEmail").value.trim(),
+    customer_phone: document.getElementById("customerPhone").value.trim(),
+    platform: document.getElementById("platform").value,
+    service: selectedService,
+    quantity: qty,
+    social_link: document.getElementById("socialLink").value.trim(),
+    notes: document.getElementById("notes").value.trim(),
+    estimated_price: total,
+    order_status: "Pending"
+  };
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting Order...";
+
+  try {
+
+    const response = await fetch(
+      "https://fcvrankhyfrvsmyxdqig.supabase.co/rest/v1/smm_orders",
+      {
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+          "apikey": "sb_publishable_dJ1EqqFG4eqlF1xuiDlPtA_RJz-He2D",
+          "Authorization": "Bearer sb_publishable_dJ1EqqFG4eqlF1xuiDlPtA_RJz-He2D",
+          "Prefer": "return=minimal"
+        },
+
+        body: JSON.stringify(orderData)
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Unable to submit order.");
+    }
+
+    message.style.display = "block";
+    message.style.background = "#ecfdf3";
+    message.style.color = "#027a48";
+
+    message.innerHTML =
+      "✅ Order submitted successfully!<br>" +
+      "Your order is now <strong>Pending</strong>.";
+
+    this.reset();
+
+    estimatedPrice.textContent = "₱0.00";
+
+  } catch (error) {
+
+    console.error(error);
+
+    message.style.display = "block";
+    message.style.background = "#fef3f2";
+    message.style.color = "#b42318";
+
+    message.textContent =
+      "❌ We couldn't submit your order. Please try again.";
+
+  } finally {
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Place Order";
+
+  }
+
+});
     });
 
   </script>
