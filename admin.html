@@ -1052,18 +1052,15 @@ async function loadOrders() {
       "sociallift_access_token"
     );
 
-
   const table =
     document.getElementById(
       "ordersTable"
     );
 
-
   const errorMessage =
     document.getElementById(
       "errorMessage"
     );
-
 
   if (!token) {
 
@@ -1073,19 +1070,16 @@ async function loadOrders() {
 
   }
 
-
   errorMessage.style.display =
     "none";
 
-
   table.innerHTML = `
     <tr>
-      <td colspan="7" class="empty">
+      <td colspan="10" class="empty">
         Loading orders...
       </td>
     </tr>
   `;
-
 
   try {
 
@@ -1103,7 +1097,6 @@ async function loadOrders() {
         }
       );
 
-
     if (!response.ok) {
 
       throw new Error(
@@ -1112,19 +1105,16 @@ async function loadOrders() {
 
     }
 
-
     const orders =
       await response.json();
 
-
     updateStats(orders);
-
 
     if (!orders.length) {
 
       table.innerHTML = `
         <tr>
-          <td colspan="7" class="empty">
+          <td colspan="10" class="empty">
             No orders found.
           </td>
         </tr>
@@ -1133,7 +1123,6 @@ async function loadOrders() {
       return;
 
     }
-
 
     table.innerHTML =
       orders.map(
@@ -1184,14 +1173,29 @@ async function loadOrders() {
 
 
           <td class="price">
-            ₱${Number(
-              order.estimated_price || 0
-            ).toLocaleString(
-              "en-PH",
-              {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-              }
+            ${formatMoney(
+              order.estimated_price
+            )}
+          </td>
+
+
+          <td>
+            ${escapeHtml(
+              order.payment_method || "—"
+            )}
+          </td>
+
+
+          <td>
+            ${escapeHtml(
+              order.payment_reference || "—"
+            )}
+          </td>
+
+
+          <td>
+            ${escapeHtml(
+              order.payment_status || "—"
             )}
           </td>
 
@@ -1200,7 +1204,10 @@ async function loadOrders() {
 
             <select
               class="status-select"
-              onchange="updateStatus('${order.id}', this.value)"
+              onchange="updateStatus(
+                '${order.id}',
+                this.value
+              )"
             >
 
               <option
@@ -1258,24 +1265,20 @@ async function loadOrders() {
       `
       ).join("");
 
-
   } catch (error) {
 
     console.error(error);
 
-
     table.innerHTML = `
       <tr>
-        <td colspan="7" class="empty">
+        <td colspan="10" class="empty">
           Unable to load orders.
         </td>
       </tr>
     `;
 
-
     errorMessage.textContent =
       "Unable to load orders. Check your Supabase policies.";
-
 
     errorMessage.style.display =
       "block";
@@ -1283,8 +1286,6 @@ async function loadOrders() {
   }
 
 }
-
-
 /* =========================
    UPDATE DASHBOARD STATS
 ========================= */
