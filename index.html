@@ -1250,15 +1250,12 @@ document.getElementById("orderForm").addEventListener("submit", async function(e
     message.textContent =
       "❌ We couldn't submit your order. Please try again.";
 
-  } finally {
+   } finally {
 
     submitButton.disabled = false;
     submitButton.textContent = "Place Order";
 
-  });
+  }
 
-  </script>
-
-</body>
-</html>
-```
+});
+</script>
